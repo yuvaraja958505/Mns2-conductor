@@ -1,0 +1,130 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Manager Login Page</title>
+    <link rel="stylesheet" href="{% static 'Clients/login-style.css' %}">
+    <link rel="stylesheet" href="{% static 'Main/bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'Main/bootstrap/js/bootstrap.min.js' %}" defer></script>
+    <script src="{% static 'Clients/login-script.js' %}" defer></script>
+
+    <style>
+        body {
+            background-image: url("{% static '\Main\assets\images\1280 904.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            }
+
+        .animate-text1 {
+          opacity: 0;
+          transform: translateY(-50px);
+          animation: enterText 1s forwards;
+        }
+
+        @keyframes enterText {
+          from {
+            opacity: 0;
+            transform: translateY(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-text {
+          opacity: 0;
+          animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+
+        #back{
+            text-decoration:none;
+            color:red;
+        }
+
+
+
+
+
+
+    </style>
+
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("cpassword").value;
+            var phone = document.getElementsByName("phone")[0].value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords and Confirm Password does not match");
+                return false;
+            }
+
+            if (phone.length !== 10 || isNaN(phone)) {
+                alert("Invalid Phone Number");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+
+    <script>
+
+    </script>
+</head>
+<body>
+
+   <div class="container">
+      <div class="box-1">
+          <div class="content-holder">
+              <h2  class="animate-text">Hello! Manager</h2>
+              <button class="button-2" onclick="login()" >LOGIN</button>
+              <button id="backButton" onclick="window.location.href = '/';">
+                <span>BACK</span>
+              </button>
+          </div>
+      </div>
+
+
+
+      <div class="box-2" style="background-color:gold;margin-top:25px;margin-bottom:25px;border-radius:7px;">
+          <div class="login-form-container"  >
+              <form action="/manager/manager_login/" method="POST"  autocomplete="off">
+                  {% csrf_token %}
+                  <h1 style="font-style:italic;margin-top:-55px;" class="animate-text1">Manager  Login</h1>
+                  <input type="text" placeholder="Email ID" name="useremail" style="font-weight:bolder;" required class="input-field">
+                  <br><br>
+                  <input type="password" placeholder="Password" name="password" style="font-weight:bolder;" required class="input-field">
+                  <br><br>
+                   <input type="submit" value="Login" class="login-button">
+              </form>
+          </div>
+
+      </div>
+</body>
+<script>
+        document.getElementById('backButton').addEventListener('click', function() {
+        window.location.href = '/';
+        });
+    </script>
+</html>

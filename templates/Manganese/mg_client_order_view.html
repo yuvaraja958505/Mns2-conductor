@@ -1,0 +1,61 @@
+<!doctype html>
+{% extends 'Manganese/manganese_home.html' %}
+
+{% block view_order %} active{% endblock %}
+{% block title %}View Client Orders{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Order View</title>
+    <link rel="stylesheet" href="{% static 'Main/bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'Main/bootstrap/js/bootstrap.min.js' %}" defer></script>
+      <link href="{% static 'Manganese/order_view/order_view.css' %}" rel="stylesheet" type="text/css">
+
+    <style>
+        body {
+            background-image: url("{% static 'Manganese/images/g1.jpg' %}");
+            background-size: cover;
+            }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-top:140px;">
+        <div class="offset-md-4 col-md-4">
+            <h2 style="background-color:white;">CLIENT ORDERS <small></small></h2>
+        </div>
+
+    <ul class="responsive-table">
+        <li class="table-header">
+            <div class="col col-2">CID</div>
+            <div class="col col-1">ORDER</div>
+            <div class="col col-2">CLIENT NAME</div>
+            <div class="col col-3">PRODUCT</div>
+            <div class="col col-1">QUANTITY</div>
+        </li>
+
+        {% for order in client_orders %}
+        <li class="table-row">
+            <div class="col col-2" data-label="client Id">{{ order.consumer_id }}</div>
+            <div class="col col-1" data-label="Order Id">{{ order.id }}</div>
+            <div class="col col-2" data-label="Cl Name">{{ order.username|title }}</div>
+            <div class="col col-3" data-label="product">{{ order.product }}</div>
+            <div class="col col-1" data-label="qnty">{{ order.quantity }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+{% endblock %}
+
+</html>

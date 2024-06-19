@@ -1,0 +1,152 @@
+<!doctype html>
+{% extends 'Manager/manager_home.html' %}
+{% block porosity_report %} active{% endblock %}
+{% block title %} Porosity Team Report {% endblock %}
+{% block content %}
+{% load static %}
+
+
+
+
+
+<html lang="en">
+  <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static 'Porosity/app_report_view/css/style.css' %}">
+
+	  <style>
+        body {
+			background-image: url("{% static '\Main\assets\images\1280 904.jpg' %}");
+			background-size: cover;
+        }
+
+        body::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.01);
+    	}
+
+        .main-top {
+			background-image:none;
+			background-size: cover;
+			-webkit-background-size: cover;
+			-o-background-size: cover;
+			-moz-background-size: cover;
+			-ms-background-size: cover;
+		}
+
+		#head1{
+			height:40px;
+			background-color:yellow;
+		}
+
+		 .active {
+    		color: blue;
+		}
+
+
+  	  </style>
+
+  </head>
+
+
+  <body>
+
+
+
+  	<div class="container-fluid" style="margin-top:60px;">
+
+		<div class="title">
+			<div class="row align-items-center">
+				<div class="col-md-12 d-flex justify-content-center"> <!-- Added column class for better alignment -->
+           			 <h3 class="text-danger text-bolder" style="font-weight:bolder;font-size:28px;margin-top:50px;">Porosity Test Result</h3>
+        		</div>
+
+			</div>
+		</div>
+
+		<div class="offset-md-1 col-md-10" style="margin-top:10px;">
+			<div class="table" style="background:gray;">
+				<table class="table  table-hover" >
+				  <thead class="thead-dark" style="line-height:0;font-weight:bolder">
+					<tr>
+						<th>S.NO</th>
+						<th>CID</th>
+						<th>NAME</th>
+						<th>PRODUCT</th>
+						<th>POROSITY</th>
+						<th>RESULT</th>
+						<th>REPORT</th>
+						<th>APPROVE</th>
+						<th>REJECT</th>
+
+					</tr>
+				  </thead>
+				  <tbody style="line-height:1;">
+					{% for order in client_orders %}
+						<tr style="font-weight:bolder;">
+							<th scope="row">{{ forloop.counter }}</th>
+							<td>{{ order.consumer_id }}</td>
+							<td>{{ order.username|title }}</td>
+							<td>{{ order.product|title }}</td>
+
+							<td>{{ order.prediction}}</td>
+							<td>{{ order.porosity_result }}</td>
+
+    {% if order.report_pdf %}
+                      <td><a class="btn btn-primary" href="{{order.report_pdf.url}}">VIEW</a> </td>
+
+                      {% else %}
+                      <td><a >NO RECORDS FOUND</a> </td>
+{% endif %}
+
+							{% if order.por_rep_admin_approve is True  %}
+								<td><a href="" class="btn btn-success">APPROVED</a></td>
+							{% else %}
+								{% if order.por_rep_admin_reject is False %}
+									<td><a href="/manager/por_admin_approve/{{order.id}}/" class="btn btn-success">APPROVE</a></td>
+								{% else %}
+									<td style="text-align:center;">----</td>
+								{% endif	%}
+							{% endif %}
+
+
+							{% if order.por_rep_admin_reject is True %}
+								<td><a href="" class="btn btn-danger">REJECTED</a></td>
+							{% else %}
+								{%  if order.por_rep_admin_approve is False %}
+									<td><a href="/manager/por_admin_reject/{{order.id}}/" class="btn btn-danger">REJECT</a></td>
+								{% else %}
+									<td style="text-align:center;">----</td>
+								{% endif	%}
+							{% endif %}
+
+
+						</tr>
+					{% endfor %}
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+
+  <script src="{% static 'Porosity/app_report_view/js/jquery.min.js' %}"></script>
+<script src="{% static 'Porosity/app_report_view/js/popper.js' %}"></script>
+<script src="{% static 'Porosity/app_report_view/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'Porosity/app_report_view/js/main.js' %}"></script>
+
+
+  </body>
+{% endblock %}
+</html>
+
+`

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+{% extends 'Clients/home_page.html' %}
+{% block Client_Payment %} active{% endblock %}
+{% block title %}Client Report{% endblock %}
+{% block content %}
+{% load static %}
+
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <title>Client Order Page</title>
+
+    <link href="{% static 'Clients/order/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'Clients/order/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <style>
+        body,html{
+			background-image: url("{% static 'Clients/images/p6.jpg' %}");
+			background-size: cover;
+        }
+
+        #site-header{
+            background:#8ECDDD;
+        }
+
+        .table{
+            margin-left:500px;
+            align-items:center;
+            background-color:#e2f5f9;
+            width:38%;
+            border-radius:7px;
+
+
+        .Btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(27, 27, 27);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.11);
+}
+
+.svgIcon {
+  fill: #8ECDDD;
+}
+
+.icon2 {
+  width: 18px;
+  height: 5px;
+  border-bottom: 2px solid #8ECDDD;
+  border-left: 2px solid #8ECDDD;
+  border-right: 2px solid #8ECDDD;
+}
+
+.tooltip {
+  position: absolute;
+  right: -105px;
+  opacity: 0;
+  background-color: rgb(12, 12, 12);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: .2s;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+}
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: rgb(12, 12, 12);
+  background-size: 1000%;
+  background-position: center;
+  transform: rotate(45deg);
+  left: -5%;
+  transition-duration: .3s;
+}
+
+.Btn:hover .tooltip {
+  opacity: 1;
+  transition-duration: .3s;
+}
+
+.Btn:hover {
+  background-color: #8ECDDD;
+  transition-duration: .3s;
+}
+
+.Btn:hover .icon2 {
+  border-bottom: 2px solid rgb(235, 235, 235);
+  border-left: 2px solid rgb(235, 235, 235);
+  border-right: 2px solid rgb(235, 235, 235);
+}
+
+.Btn:hover .svgIcon {
+  fill: rgb(255, 255, 255);
+  animation: slide-in-top 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+
+#theading2{
+    background-color:#2596be;
+    text-align:center;
+    color:white;
+}
+
+    </style>
+</head>
+
+<body >
+
+    <div  style="margin-top:100px;">
+        <h1 style="text-align:center;font-style:italic;">FINAL REPORT</h1>
+        <div class="d-flex justify-content-center">
+        </div>
+
+
+        <div class="table" style="margin-top:30px;">
+            {% if message is 'No Orders' %}
+                <p>{{ message }}</p>
+            {% else %}
+
+                <table>
+                        <thead>
+                            <tr>
+                                <th id="theading2">Consumer ID</th>
+                                <th id="theading3">{{values.consumer_id}}</th>
+                            </tr>
+
+                            <tr>
+                                <th id="theading2">Order ID</th>
+                                <th id="theading3">OD00{{values.id}}</th>
+                            </tr>
+                            <tr>
+                                <th id="theading2">Username</th>
+                                <th id="theading3">{{values.username|title}}</th>
+                            </tr>
+                            <tr>
+                                <th id="theading2">User Email</th>
+                                <th id="theading3">{{values.email}}</th>
+                            </tr>
+                            <tr>
+                                <th id="theading2">Product</th>
+                                <th id="theading3">{{values.product}}</th>
+                            </tr>
+
+                            <tr>
+                                <th id="theading2">Quantity</th>
+                                <th id="theading3">{{values.quantity}}</th>
+                            </tr>
+
+
+                             <tr>
+                                <th id="theading2">Product</th>
+                                <th id="theading3">{{values.product}}</th>
+                            </tr>
+
+                            <tr>
+                                <th id="theading2">Quantity</th>
+                                <th id="theading3">{{values.quantity}}</th>
+                            </tr>
+
+                             <tr>
+                                <th id="theading2">Manganese Size</th>
+                                <th id="theading3">{{values.manganese_size}}</th>
+                            </tr>
+
+                            <tr>
+                                <th id="theading2">Manganese Form</th>
+                                <th id="theading3">{{values.manganese_form}}</th>
+                            </tr>
+
+                            <tr>
+                                <th id="theading2">Porosity</th>
+                                <th id="theading3">{{values.porosity_result}}</th>
+
+                            </tr>
+                            <tr>
+                                <th id="theading2">Conductivity Report</th>
+                                <th > <a href="{{ values.report_pdf.url }}" download ><button class="Btn" >
+                               <svg class="svgIcon" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
+                               <span class="icon2" ></span>
+                               <span class="tooltip" >Download</span>
+                                </button></a></th>
+                            </tr>
+
+                        </thead>
+
+
+                </table>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+{% endblock %}
+
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% extends 'Clients/home_page.html' %}
+{% block client_order_status %} active{% endblock %}
+{% block title %}Client Order Status{% endblock %}
+{% block content %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <title>Client Order Page</title>
+
+    <link href="{% static 'Clients/order/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'Clients/order/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <style>
+        body, html {
+            background-image: url("{% static '\Main\assets\images\922 519.jpg' %}");
+            background-size: cover;
+        }
+
+        #site-header {
+            background: #8ECDDD;
+        }
+
+        .table {
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            background: linear-gradient(to right, #3498db, #5dade2, #85c1e9, #a9cce3);
+            width: 80%;
+            border-radius: 7px;
+            padding: 20px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+
+        }
+
+        th {
+            background-color: #FB88B4;
+            color: white;
+
+        }
+
+        tr:nth-child(even) {
+            background-color: #c5e1f6;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div style="margin-top: 150px;">
+    <div class="d-flex justify-content-center" style="margin-bottom:10px;">
+        <h3 style="color:white;">Hello {{ name|title }}!</h3>
+    </div>
+
+    <div class="table">
+        {% if message is 'No Orders' %}
+            <p>{{ message }}</p>
+        {% else %}
+            <table>
+                <thead style="text-align: center; text-transform: uppercase;">
+                <tr>
+                    <th>Consumer ID</th>
+                    <th>Order ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                </tr>
+                </thead>
+                <tbody style="text-align: center;">
+                {% for order in client_orders %}
+                    <tr style="font-weight:bolder;">
+                        <td>{{ order.consumer_id }}</td>
+                        <td>ORD10{{ order.id }}</td>
+                        <td>{{ order.username|title }}</td>
+                        <td>{{ order.email }}</td>
+                        <td>{{ order.product }}</td>
+                        <td>{{ order.quantity }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+{% endblock %}
+</html>

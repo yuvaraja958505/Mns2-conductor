@@ -1,0 +1,470 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>{% block title %}Manganese Home Page{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="keywords" content="Creature Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+    <link href="{% static 'Manganese/css/bootstrap.css' %}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'Manganese/css/blast.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'Manganese/css/portfolio.css' %}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'Manganese/css/style.css' %}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'Manganese/css/font-awesome.min.css' %}" rel="stylesheet">
+
+
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" >
+
+    <script>
+      {% for msg in messages %}
+         alert('{{ msg }}');
+      {% endfor %}
+    </script>
+
+    <div id="home">
+
+        <div class="blast-box">
+            <div class="blast-frame">
+                <p>color schemes</p>
+                <div class="blast-colors d-flex justify-content-center">
+                    <div class="blast-color">#23d48f</div>
+                    <div class="blast-color">#d3b800</div>
+                    <div class="blast-color">#18e7d3</div>
+                    <div class="blast-color">#e5902a</div>
+                    <div class="blast-color">#16d9e9</div>
+
+                </div>
+                <p class="blast-custom-colors">Choose Custom color</p>
+                <input type="color" name="blastCustomColor" value="#d3b800">
+
+            </div>
+            <div class="blast-icon"><span class="fa fa-paint-brush" aria-hidden="true"></span></div>
+        </div>
+
+        <header style="background-color:black;">
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-expand-lg navbar-light navbar-fixed-top" style="background-color:#FFF7D4;">
+                <h1>
+                    <a class="navbar-brand" href="/manganese_process/mg_home/" data-blast="color">
+                        manganese
+                    </a>
+                </h1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                    <ul class="navbar-nav mx-lg-auto text-center">
+
+                        <li class="nav-item {% block home_active %}{% endblock %}">
+                            <a class="nav-link " style="color:black" href="/manganese_process/mg_home/" >Home
+
+                            </a>
+                        </li>
+
+                        <li class="nav-item  mt-lg-0 mt-3 {% block view_order %}{% endblock %}">
+                            <a class="nav-link " style="color:black" href="/manganese_process/mg_client_order_view/">VIEW ORDERS</a>
+                        </li>
+
+
+                        <li class="nav-item mt-lg-0 mt-3 {% block data_set_upload %}{% endblock %}">
+                            <a class="nav-link " style="color:black" href="/manganese_process/mg_data_set_upload/">REQUIREMENTS</a>
+                        </li>
+
+                         <li class="nav-item mt-lg-0 mt-3 {% block mang_proc_active %}{% endblock %}">
+                            <a class="nav-link " style="color:black" href="/manganese_process/mg_process_data/">PROCESS</a>
+                        </li>
+
+                        <li class="nav-item mt-lg-0 mt-3 {% block mang_report_active %}{% endblock %}">
+                            <a class="nav-link " style="color:black" href="/manganese_process/mg_view_report/">REPORT</a>
+                        </li>
+
+
+                        <li class="nav-item  mt-lg-0 mt-3 ">
+                            <a class="nav-link " style="color:black" href="/manganese_process/mg_logout/">Logout</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </nav>
+        </header>
+
+        {% block content %}
+
+
+
+        <div class="callbacks_container">
+            <ul class="rslides" id="slider3">
+                <li class="banner banner1">
+                    <div class="container">
+                        <div class="banner-text">
+                            <div class="slider-info">
+                                <h3>Innovative Component Solutions</h3>
+                                <span class="line"></span>
+                                <p>Empowering technology with cutting-edge components crafted using manganese fluoride for superior performance and reliability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="banner banner2">
+                    <div class="container">
+                        <div class="banner-text">
+                            <div class="slider-info">
+                                <h3>Advancing Technology</h3>
+                                <span class="line"></span>
+                                <p>Driving innovation in pressure switches, variable resistors, memory devices, batteries, and supercapacitors with manganese fluoride integration.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="banner banner3">
+                    <div class="container">
+                        <div class="banner-text">
+                           <div class="slider-info">
+                                <h3>Elevate Your Projects</h3>
+                                <span class="line"></span>
+                                <p>Enhance your projects across industries by leveraging our high-quality components utilizing manganese fluoride for exceptional results.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="wthree-slide-btm pt-lg-5" id="about">
+        <div class="container pt-sm-5 pt-4">
+            <div class="row no-gutters">
+                <div class="col-lg-5">
+                    <div class="slide-banner">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="bg-abt light-bg">
+                        <div class="container">
+                            <div class="title-desc  pb-sm-3">
+                                <h4 class="main-title-w3pvt">Advancing Technology with Components</h4>
+                                <p>Empowering industries through cutting-edge components crafted for superior performance and reliability.</p>
+                            </div>
+                            <div class="row flex-column mt-lg-4 mt-3">
+                                <div class="abt-grid">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="abt-icon" data-blast="bgColor">
+                                                <span class="fa fa-cogs"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9 pl-sm-0">
+                                            <div class="abt-txt ml-sm-0">
+                                                <h4>Innovative Solutions</h4>
+                                                <p>Explore our range of pressure switches, variable resistors, memory devices, batteries, supercapacitors, and more.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="abt-grid mt-4 pt-lg-2">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="abt-icon" data-blast="bgColor">
+                                                <span class="fa fa-laptop"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9 pl-sm-0">
+                                            <div class="abt-txt ml-sm-0">
+                                                <h4>Enhanced Performance and Reliability</h4>
+                                                <p>Through the integration of cutting-edge manganese fluoride technology, our components offer unparalleled performance. They're designed to excel in demanding environments, ensuring exceptional durability, reliability,high-grade and efficiency. </p>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <section class="wthree-slide-btm pb-lg-5">
+        <div class="container pb-md-5 pb-4">
+            <div class="row flex-row-reverse no-gutters">
+                <div class="col-lg-5">
+                    <div class="ab-banner">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="bg-abt">
+                        <div class="container">
+                            <div class="title-desc  pb-sm-3">
+                                <h4 class="main-title-w3pvt">Advancing Technology Through Innovation</h4>
+                                <p>Pushing the boundaries of technology and engineering for a sustainable future.</p>
+                            </div>
+                            <div class="row flex-column mt-lg-4 mt-3">
+                                <div class="abt-grid">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="abt-icon" data-blast="bgColor">
+                                                <span class="fa fa-cogs"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9 pl-sm-0">
+                                            <div class="abt-txt ml-sm-0">
+                                                <h4>Innovative Engineering Solutions</h4>
+                                                <p>Our commitment to pioneering engineering solutions leads to the creation of advanced components using cutting-edge materials like manganese fluoride, ensuring superior performance and reliability in diverse applications.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="abt-grid mt-4 pt-lg-2">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="abt-icon" data-blast="bgColor">
+                                                <span class="fa fa-laptop"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9 pl-sm-0">
+                                            <div class="abt-txt ml-sm-0">
+                                                <h4>Engineering Excellence</h4>
+                                                <p>Our pursuit of engineering excellence is embodied in the meticulous development and integration of components utilizing manganese fluoride. By harnessing this cutting-edge material, we ensure that each component meets stringent standards of performance, durability, and reliability. This commitment enables us to deliver technological solutions that redefine industry benchmarks.</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w3_stats py-sm-5 py-4" id="stats">
+        <div class="container">
+            <div class="py-lg-5 w3-stats">
+                <h2 class="w3pvt-title">Pioneering Technological Innovations</h2>
+                <p class="my-4 text-white">
+                    Leveraging cutting-edge technology and advanced materials like manganese fluoride, we're reshaping industries and driving innovation. Our commitment to engineering excellence ensures components that redefine performance standards, empowering technological advancements across sectors.</p>
+
+                <div class="row py-4">
+                    <div class="col-md-4 col-6">
+                        <div class="counter">
+                            <span class="fa fa-smile-o"></span>
+                            <div class="timer count-title count-number mt-2 text-white" data-to="297" data-speed="1500"></div>
+                            <p class="count-text text-uppercase text-white">volunteers</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-6">
+                        <div class="counter">
+                            <span class="fa fa-users"></span>
+                            <div class="timer count-title count-number mt-2 text-white" data-to="194" data-speed="1500"></div>
+                            <p class="count-text text-uppercase text-white">projects completed</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-6 mt-md-0 mt-4">
+                        <div class="counter">
+                            <span class="fa fa-database"></span>
+                            <div class="timer count-title count-number mt-2 text-white" data-to="2298" data-speed="1500"></div>
+                            <p class="count-text text-uppercase text-white">donars</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="w3lspvt-about py-md-5 py-5" id="services">
+        <div class="container pt-lg-5">
+            <div class="title-desc text-center pb-sm-3">
+                <h3 class="main-title-w3pvt">premium features</h3>
+
+            </div>
+            <div class="w3lspvt-about-row row text-center pt-md-0 pt-5 mt-lg-5">
+                <div class="col-lg-4 col-sm-6 w3lspvt-about-grids">
+                    <div class="p-md-5 p-sm-3">
+                        <span class="fa fa-cogs" data-blast="borderColor"></span>
+                        <h4 class="mt-2 mb-3" data-blast="color">Innovation</h4>
+                        <p>Pushing technological boundaries through innovative solutions and advanced materials.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 w3lspvt-about-grids  border-left border-right my-sm-0 my-5">
+                    <div class="p-md-5 p-sm-3">
+                        <span class="fa fa-line-chart" data-blast="borderColor"></span>
+                        <h4 class="mt-2 mb-3" data-blast="color">Advancement</h4>
+                        <p>Driving advancements in industry standards and performance benchmarks.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 w3lspvt-about-grids">
+                    <div class="p-md-5 p-sm-3">
+                        <span class="fa fa-flask" data-blast="borderColor"></span>
+                        <h4 class="mt-2 mb-3" data-blast="color">Engineering</h4>
+                        <p>Crafting reliable components using advanced engineering and cutting-edge technology.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3lspvt-about-row border-top row text-center pt-md-0 pt-5 mt-md-0 mt-5">
+                <div class="col-lg-4 col-sm-6 w3lspvt-about-grids">
+                    <div class="p-md-5 p-sm-3 col-label">
+                        <span class="fa fa-connectdevelop" data-blast="borderColor"></span>
+                        <h4 class="mt-2 mb-3" data-blast="color">Integration</h4>
+                        <p>Seamlessly integrating cutting-edge technology for enhanced product functionality.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 w3lspvt-about-grids mt-lg-0 mt-md-3 border-left border-right pt-sm-0 pt-5">
+                    <div class="p-md-5 p-sm-3 col-label">
+                        <span class="fa fa-cube" data-blast="borderColor">
+                        </span>
+                        <h4 class="mt-2 mb-3" data-blast="color">Incorporation</h4>
+                        <p>Incorporating advanced materials like manganese fluoride for superior product performance.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 w3lspvt-about-grids pt-md-0 pt-5">
+                    <div class="p-md-5 p-sm-3 col-label">
+                        <span class="fa fa-rocket" data-blast="borderColor"></span>
+                        <h4 class="mt-2 mb-3" data-blast="color">Progress</h4>
+                        <p>Fostering progress and growth through technological innovation and expertise.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="abt_bottom py-lg-5 bg-theme" data-blast="bgColor" >
+        <div class="container py-sm-4 py-3" style="background-color:#E36414;border-radius:11px;">
+            <h4 class="abt-text text-capitalize text-sm-center">Empowering Technological Solutions</h4>
+            <p>We provide a seamless manufacturing process, ensuring your electronic products are built to perform and exceed expectations.</p>
+        </div>
+    </div>
+
+
+    {% endblock %}
+
+    <script src="{% static 'Manganese/js/jquery-2.2.3.min.js' %}"></script>
+
+
+    <script>
+        window.onload = function () {
+            document.getElementById("password1").onchange = validatePassword;
+            document.getElementById("password2").onchange = validatePassword;
+        }
+
+        function validatePassword() {
+            var pass2 = document.getElementById("password2").value;
+            var pass1 = document.getElementById("password1").value;
+            if (pass1 != pass2)
+                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+            else
+                document.getElementById("password2").setCustomValidity('');
+            //empty string means no validation error
+        }
+    </script>
+
+    <script src="{% static 'Manganese/js/responsiveslides.min.js' %}"></script>
+
+
+    <script>
+        // You can also use"$(window).load(function() {"
+        $(function () {
+            // Slideshow 4
+            $("#slider3").responsiveSlides({
+                auto: true,
+                pager: true,
+                nav: false,
+                speed: 500,
+                namespace: "callbacks",
+                before: function () {
+                    $('.events').append("<li>before event fired.</li>");
+                },
+                after: function () {
+                    $('.events').append("<li>after event fired.</li>");
+                }
+            });
+
+        });
+    </script>
+
+    <script src="{% static 'Manganese/js/scrolling-nav.js' %}"></script>
+    <script src="{% static 'Manganese/js/counter.js' %}"></script>
+    <script src="{% static 'Manganese/js/jquery.picEyes.js' %}"></script>
+
+
+    <script>
+        $(function () {
+            //picturesEyes($('.demo li'));
+            $('.demo li').picEyes();
+        });
+    </script>
+
+
+
+
+    <script src="{% static 'Manganese/js/move-top.js' %}"></script>
+    <script src="{% static 'Manganese/js/easing.js' %}"></script>
+
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            /*
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear' 
+            };
+            */
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+
+    <script src="{% static 'Manganese/js/SmoothScroll.min.js' %}"></script>
+    <script src="{% static 'Manganese/js/blast.min.js' %}"></script>
+    <script src="{% static 'Manganese/js/bootstrap.js' %}"></script>
+
+
+</body>
+
+</html>

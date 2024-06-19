@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Client Payment Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="UI Card Payment template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+
+<link href="{% static 'Clients/payment/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'Clients/payment/css/font-awesome.css' %}" rel="stylesheet">
+
+
+<link href="//fonts.googleapis.com/css?family=Lobster+Two:400,400i,700,700i" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'> 
+
+</head>
+<body>
+
+	<div class="mainw3-agile">
+		<h1>Client Payment</h1>
+		<div class="main-agileinfo">
+			<div class="w3pay-left">
+				<div class="w3pay-left-text">
+					<img src="{% static 'Clients/payment/images/pay2.jpg' %}" alt=""/>
+					<h2></h2>
+					<p>Enter your payment information to confirm your order</p>
+					<h3>₹ {{order.amount}}</h3>
+				</div>	
+				<h6><a href="/clients/client_payment/"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Cancel your payment</a></h6>
+			</div>
+			<form action="/clients/client_payamount/{{order.id}}/" method="post" autocomplete="off">
+				{% csrf_token %}
+				<div class="w3pay-right wthree-pay-grid">
+					<div class="card-bounding agileits">
+						<form action="#" method="post">
+							<div class="card-details">
+								<aside>Name On Card:</aside>
+								<input type="text" name="name" minlength="3" placeholder="Name On Card" required=""/>
+							</div>
+							<aside>Card Number:</aside>
+							<div class="card-container">
+								<div class="card-type"></div>
+								<input type="text" name="card number" maxlength="16" title="Card Number only" onkeypress="return(event.charCode>=48 && event.charCode<=57)" placeholder="0000 0000 0000 0000"  required=""/>
+								<div class="card-valid"></div>
+							</div>
+							<div class="card-details agileits-w3layouts">
+								<div class="expiration">
+									<aside>Expiration Date</aside>
+									<input type="text" name="date" onkeyup="$cc.expiry.call(this,event)" maxlength="7" placeholder="mm/yyyy" required=""/>
+								</div>
+								<div class="cvv">
+									<aside>CVV</aside>
+									<input type="password" name="cvv" placeholder="XXX" maxlength="3" required=""/>
+								</div>
+								<div class="clear">	</div>
+							</div>
+							<input type="submit" value="Pay Now">
+						</form>
+					</div>
+				</div>
+			</form>
+			<div class="clear">	</div>		
+		</div>	
+	</div>	
+
+
+	<script src="{% static 'Clients/payment/js/creditCardValidator.js' %}" type="text/javascript"></script>
+
+
+
+</body>
+</html>

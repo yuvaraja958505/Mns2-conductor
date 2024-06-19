@@ -1,0 +1,344 @@
+
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}Manager Home Page{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Manager/home/assets/css/style-starter.css' %}">
+
+    <style>
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-item {
+        color: #333;
+        padding: 8px 12px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-item:hover {
+        background-color: #427D9D;
+    }
+
+    .site-header{
+        background-color:red;
+    }
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+      {% for msg in messages %}
+         alert('{{ msg }}');
+      {% endfor %}
+    </script>
+
+<!-- site header -->
+<header id="site-header" class="fixed-top" style="background-color:#31304D;height:80px;text-align:justify;display: flex; align-items: center;">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="/manager/manager_home/">
+          <span class="fa fa-shield"></span> Manager
+      </a>
+      <button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse"
+          data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav" >
+          <ul class="navbar-nav m-auto">
+              <li class="nav-item {% block home_active %}{% endblock %}" style="padding-left:150px;">
+                  <a class="nav-link" href="/manager/manager_home/">Home <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item">
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle {% block login_approval %}{% endblock %}" href="#" role="button" id="navbarDropdown" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" >
+                        Admin Approval
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/manager/mg_app_login_client/">Our Clients </a>
+                        <a class="dropdown-item" href="/manager/mg_app_login_manganese/">Manganese Team</a>
+                        <a class="dropdown-item" href="/manager/mg_app_login_application/">Application Team</a>
+                        <a class="dropdown-item" href="/manager/mg_app_login_porosity/">Porosity Team</a>
+
+                    </div>
+                </div>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link {% block manganese_report %}{% endblock %}" href="/manager/mg_view_report/">Manganese Report</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link {% block application_report %}{% endblock %}" href="/manager/app_view_report/">Integration Report</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link {% block porosity_report %}{% endblock %}" href="/manager/porosity_fin_report_view/">Porosity </a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link {% block payment_dispatch %}{% endblock %}" href="/manager/payment_view/">Payment </a>
+              </li>
+
+
+              <li class="nav-item">
+                  <a class="nav-link" href="/manager/manager_logout/">Logout</a>
+              </li>
+
+          </ul>
+
+      </div>
+  </nav>
+</header>
+
+    {% block content %}
+
+
+
+<!-- //site header -->
+
+<!-- banner section -->
+<section id="home" class="banner">
+    <div id="banner-bg-effect" class="banner-effect"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-12 col-sm-12 order-lg-first mt-lg-0 mt-4">
+                <h1 class="mb-4 title"><strong>Microsecond Masters</strong> Electronics <strong>Making Every Tick Count</strong></h1>
+                Microsecond Masters:
+                <p>They pulse beneath our feet, monitoring the rhythmic heartbeat of bridges and the gentle whisper of touch. In bustling factories, they become watchful sentinels, guarding against unseen pressures that threaten to crack and crumble. These silent guardians, woven into the fabric of electronics, sing a song of safety and precision.</p>
+
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12 order-first text-lg-left text-center">
+                <div>
+                    <img src="assets/images/banner-round.png" alt="" class="rounded-circle img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //banner section -->
+
+<!-- home page about -->
+<section class="w3l-about">
+    <div class="container">
+        <div class="row about-content">
+            <div class="col-lg-6 info mb-lg-0 mb-sm-5 mb-4 align-center">
+                <h3 class="title">About Us</h3>
+                <h6>Harnessing the Power of MnS2: From Materials to Tomorrow's Electronics.</h6>
+                <p class="mt-md-4 mt-3 mb-0">
+                    In the world of electronics, where microseconds matter and efficiency reigns supreme, we orchestrate a symphony of innovation with MnS2 – a material pulsing with potential. From the whisper-thin touch of a pressure sensor to the lightning-fast dance of information in RRAM, MnS2 fuels our creations.
+
+                    We sculpt sensors that safeguard bridges and whisper the secrets of industrial processes. We weave RRAM, a memory marvel, rewriting the rules of data storage with its fleeting whispers of voltage. In supercapacitors, MnS2 becomes a titan of energy, holding the sun's roar and the wind's sigh, empowering a future of sustainable power.
+                    Our batteries, infused with MnS2's magic, break free from the chains of waste and environmental burden. We are more than just manufacturers; we are architects of change, building a world where electronics sing in harmony with our planet.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="{% static 'Manager/home/assets/images/img6.png' %}" class="img-fluid img-shadow" alt="about">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
+        <h4 class="section-title">Meet Our Solution For You</h4>
+        <p class="text-center"></p>
+      </div>
+    </div>
+    <div class="row mt-lg-5">
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="box-wrap">
+          <div class="icon">
+            <span class="fa fa-briefcase"></span>
+          </div>
+          <h4><a href="#url">Pressure Sensor Solutions</a></h4>
+          <p>Ensure safety and precision with our cutting-edge pressure sensors. Optimize industrial processes, monitor structural integrity and much more related environment.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="box-wrap">
+          <div class="icon">
+            <span class="fa fa-shield"></span>
+          </div>
+          <h4><a href="#url">Next-Gen Memory Solutions</a></h4>
+          <p>Revolutionize data storage with our lightning-fast RRAM technology. Experience unparalleled speed, efficiency, and durability for your devices</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="box-wrap">
+          <div class="icon">
+            <span class="fa fa-dollar"></span>
+          </div>
+          <h4><a href="#url"> Powering the Future</a></h4>
+          <p>Unleash the potential of sustainable energy with our high-performance supercapacitors. Bridge the gap between batteries and traditional energy sources.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="box-wrap">
+          <div class="icon">
+            <span class="fa fa-industry"></span>
+          </div>
+          <h4><a href="#url">MnS2 Batteries Energy</a></h4>
+          <p>Embrace a new era of battery technology with our MnS2-powered batteries. Enjoy longer lifespans, faster charging, and reduced environmental impact</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="box-wrap">
+          <div class="icon">
+            <span class="fa fa-lightbulb-o"></span>
+          </div>
+          <h4><a href="#url">Join Our Research Network</a></h4>
+          <p>Collaborate with us to unlock the full potential of MnS2 and shape the future of electronics. Explore new possibilities in sensors, memory, and energy storage</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="box-wrap">
+          <div class="icon">
+            <span class="fa fa-picture-o"></span>
+          </div>
+          <h4><a href="#url">Enabling Innovation Worldwide</a></h4>
+          <p>Discover how our MnS2-based technologies are impacting industries and communities around the globe. Explore case studies and success stories</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stats" class="stats">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 margin-md-60">
+                <h2 class="left-title">Electrifying Facts About Our Innovation</h2>
+                <p class="white">
+                   We've powered over 5 million devices with our MnS2-based sensors and batteries.
+                   Our supercapacitors can charge 100x faster than conventional batteries.
+                  Our RRAM memory chips can store data for up to 10 years without power.
+                   We're working on projects to revolutionize wearable tech and self-driving cars.
+                  Our engineers hold over 25 patents in MnS2-related technologies.
+                </p>
+            </div>
+            <div class="col-lg-7 mt-lg-0 mt-5">
+                <div class="d-sm-flex justify-content-lg-around justify-content-between counter-main">
+                    <div class="counter">
+                        <div class="icon">
+                            <span class="fa fa-folder-open-o"></span>
+                        </div>
+                        <p class="value">385</p>
+                        <p class="title white">Projects</p>
+                    </div>
+                    <div class="counter">
+                        <div class="icon">
+                            <span class="fa fa-headphones"></span>
+                        </div>
+                        <p class="value">260</p>
+                        <p class="title white">Consultant</p>
+                    </div>
+                    <div class="counter">
+                        <div class="icon">
+                            <span class="fa fa-trophy"></span>
+                        </div>
+                        <p class="value">150</p>
+                        <p class="title white">Awards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //stats section -->
+
+
+
+    {% endblock %}
+
+<button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+  <span class="fa fa-angle-up"></span>
+</button>
+
+<script>
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction()
+  };
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("movetop").style.display = "block";
+    } else {
+      document.getElementById("movetop").style.display = "none";
+    }
+  }
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+<!-- //move top -->
+
+<script src="{% static 'Manager/home/assets/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'Manager/home/assets/js/lightbox-plus-jquery.min.js' %}"></script>
+<script src="{% static 'Manager/home/assets/js/particles.min.js' %}"></script>
+<script src="{% static 'Manager/home/assets/js/script.js' %}"></script>
+<script src="{% static 'Manager/home/assets/js/owl.carousel.js' %}"></script>
+
+<script>
+  $(document).ready(function () {
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+      margin: 10,
+      nav: true,
+      loop: false,
+      responsive: {
+        0: {
+          items: 1
+        },
+        767: {
+          items: 2
+        },
+        1000: {
+          items: 3
+        }
+      }
+    })
+  })
+</script>
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<!-- bootstrap -->
+<script src="{% static 'Manager/home/assets/js/bootstrap.min.js' %}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>{% block title %}Application Home Page{% endblock %}</title>
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'App_integration/home/assets/css/style-starter.css' %}">
+
+  </head>
+  <body>
+
+  <script>
+      {% for msg in messages %}
+         alert('{{ msg }}');
+      {% endfor %}
+    </script>
+
+
+<!-- header -->
+<header class="w3l-header" style="background-color:#C5E898;">
+	<div class="hero-header-11">
+		<div class="hero-header-11-content">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg navbar-light py-md-2 py-0 px-0">
+					<a class="navbar-brand" href="index.html"><img src="assets/images/logo-icon.png" alt="" / > App Integration</a>
+
+
+					<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+						<span class="navbar-toggler-icon fa icon-close fa-times"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="/app_integration/app_home/">Home <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item @@about-active">
+								<a class="nav-link {% block mang_report_active %}{% endblock %}" href="/app_integration/mang_team_report_view/">Manganese Report</a>
+							</li>
+							<li class="nav-item @@services-active">
+								<a class="nav-link {% block app_process_active %}{% endblock %}" href="/app_integration/app_process_view/">Process</a>
+							</li>
+							<li class="nav-item @@contact-active">
+								<a class="nav-link {% block app_final_report %}{% endblock %}" href="/app_integration/app_final_report/">Report</a>
+							</li>
+
+                            <li class="nav-item @@contact-active">
+								<a class="nav-link" href="/app_integration/app_logout/">Logout</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+
+  {% block content %}
+
+ <section class="w3l-main-banner">
+   <div class="companies20-content">
+     <div class="companies-wrapper">
+       <div class="container">
+         <div class="banner-item">
+           <div class="banner-view">
+             <div class="banner-info">
+              <h3 class="banner-text">
+                Spark Your Innovation Engine.<br>Make Circuitry Designs.
+              </h3>
+              <p class="my-4 mb-sm-5">Revolutionize your approach to electronics design and problem-solving with cutting-edge techniques and strategies. Learn from experts, explore diverse perspectives, and unleash your creative potential to shape the future of electronics.</p><br>
+
+            </div>
+
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+
+<section class="w3l-index5" id="about">
+  <div class="new-block py-5">
+    <div class="container py-lg-3">
+      <div class="header-section text-center">
+        <h3>Crafting Electronic Innovations</h3>
+        <p class="mt-3 mb-5">We translate innovative ideas into tangible electronic products. From concept to design, prototyping to mass production, we partner with you every step of the way to bring your vision to life.</p>
+
+      </div>
+
+{% endblock %}
+
+
+     <script>
+       // When the user scrolls down 20px from the top of the document, show the button
+       window.onscroll = function () {
+         scrollFunction()
+       };
+
+       function scrollFunction() {
+         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+           document.getElementById("movetop").style.display = "block";
+         } else {
+           document.getElementById("movetop").style.display = "none";
+         }
+       }
+
+       // When the user clicks on the button, scroll to the top of the document
+       function topFunction() {
+         document.body.scrollTop = 0;
+         document.documentElement.scrollTop = 0;
+       }
+     </script>
+
+
+   </footer>
+
+      <script src="{% static 'App_integration/home/assets/js/jquery-3.3.1.min.js' %}"></script>
+      <script src="{% static 'App_integration/home/assets/js/bootstrap.min.js' %}"></script>
+
+
+      <script src="{% static 'App_integration/home/assets/js/jquery.waypoints.min.js' %}"></script>
+      <script src="{% static 'App_integration/home/assets/js/jquery.countup.js' %}"></script>
+
+   <script>
+     $('.counter').countUp();
+   </script>
+
+
+      <script src="{% static 'App_integration/home/assets/js/owl.carousel.js' %}"></script>
+
+
+   <script>
+     $(document).ready(function () {
+       $('.owl-one').owlCarousel({
+         loop: true,
+         margin: 0,
+         nav: false,
+         responsiveClass: true,
+         autoplay: false,
+         autoplayTimeout: 5000,
+         autoplaySpeed: 1000,
+         autoplayHoverPause: false,
+         responsive: {
+           0: {
+             items: 1,
+             nav: false
+           },
+           480: {
+             items: 1,
+             nav: false
+           },
+           667: {
+             items: 1,
+             nav: false
+           },
+           1000: {
+             items: 1,
+             nav: false
+           }
+         }
+       })
+     })
+   </script>
+
+   <script>
+     $(document).ready(function () {
+       $('.owl-two').owlCarousel({
+         loop: true,
+         margin: 30,
+         nav: false,
+         responsiveClass: true,
+         autoplay: false,
+         autoplayTimeout: 5000,
+         autoplaySpeed: 1000,
+         autoplayHoverPause: false,
+         responsive: {
+           0: {
+             items: 1,
+             nav: false
+           },
+           480: {
+             items: 1,
+             nav: false
+           },
+           667: {
+             items: 2,
+             nav: false
+           },
+           1000: {
+             items: 3,
+             nav: false
+           }
+         }
+       })
+     })
+   </script>
+
+
+
+   <script>
+     $(function () {
+       $('.navbar-toggler').click(function () {
+         $('body').toggleClass('noscroll');
+       })
+     });
+   </script>
+
+
+   </body>
+
+   </html>

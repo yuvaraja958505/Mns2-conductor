@@ -1,0 +1,181 @@
+﻿
+
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Manganese Login</title>
+    <link rel="stylesheet" href="{% static 'Clients/login-style.css' %}">
+    <link rel="stylesheet" href="{% static 'Main/bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'Main/bootstrap/js/bootstrap.min.js' %}" defer></script>
+    <script src="{% static 'Clients/login-script.js' %}" defer></script>
+
+    <style>
+        body {
+            background-image: url("{% static 'Clients/images/new10f.jpeg' %}");
+            background-size: cover;
+            background-position: center;
+            }
+
+        .input-field:hover {
+          background-color: #FFDFDF;
+          border-color: #ddd;
+        }
+
+        .input-field{
+            font-weight:bolder;
+        }
+
+        @keyframes fadeInRotate {
+          from {
+            opacity: 0;
+            transform: translateY(-20px) rotate(0deg);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) rotate(360deg);
+          }
+        }
+
+
+        .animate-on-refresh {
+          animation: fadeInRotate 1s ease-in-out;
+        }
+
+        #back{
+            text-decoration:none;
+            color:yellow;
+            font-weight:bolder;
+        }
+
+
+        #container1{
+            background: linear-gradient(45deg, #FF4081, #3F51B5, #2196F3);
+            border-radius: 25px;
+            padding: 15px;
+        }
+        #box2{
+            background: linear-gradient(135deg, #64B5F6, #FFD54F, #FF7043);
+            margin-top: 25px;
+            border-radius: 7px;
+            height:320px;
+
+        #box4{
+            background: linear-gradient(135deg, #64B5F6, #FFD54F, #FF7043);
+            border-radius: 7px;}
+
+
+
+        .gradient-button {
+            background: linear-gradient(45deg, #FF0000, #FFFF00, #00FF00);
+            color: red;
+            font-weight: bolder;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .gradient-button:hover {
+            opacity: 0.8;
+        }
+        .content-holder button{
+            background-color:orange;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+    <script>
+      {% for msg in messages %}
+         alert('{{ msg }}');
+      {% endfor %}
+    </script>
+   <div class="container" id="container1">
+      <div class="box-1">
+          <div class="content-holder" style="margin-top:-10px;">
+              <h2>Welcome !!</h2>
+              <button class="button-1 gradient-button" onclick="signup()">SIGN UP</button>
+                <button class="button-2 gradient-button" onclick="login()">LOGIN</button>
+              <button id="backButton" onclick="window.location.href = '/';">
+                <span>BACK</span>
+              </button>
+          </div>
+      </div>
+
+
+      <!--Forms-->
+      <div class="box-2" id="box2">
+          <div class="login-form-container">
+              <form action="/manganese_process/mg_login/" method="POST" autocomplete="off">
+                  {% csrf_token %}
+                  <h1 class="animate-on-refresh" style="font-style:italic;margin-top:-55px;">Manganese Team Login</h1>
+                  <input type="text" placeholder="Email ID" name="useremail" required class="input-field">
+                  <br><br>
+                  <input type="password" placeholder="Password" name="password" required class="input-field">
+                  <br><br>
+                   <input type="submit" value="Login" class="login-button">
+              </form>
+          </div>
+
+
+<!--Create Container for Signup form-->
+          <div class="signup-form-container" onsubmit="return validateForm()">
+              <form action="/manganese_process/mg_register/" method="POST" autocomplete="off">
+                {% csrf_token %}
+              <h1 class="animate-on-refresh" style="font-style:italic;text-decoration:underline;margin-top:15px;">Manganese Team Registration</h1>
+              <div class="row" style="margin-bottom:30px;">
+                  <div class="col-md-6">
+                      <input type="text" placeholder="Username" name="username" class="input-field" required>
+                  </div>
+
+                  <div class="col-md-6">
+
+
+                           <input type="text" value="Material Analyst" placeholder="Material Analyst" class="input-field" name="designation" >
+
+
+                  </div>
+
+              </div>
+              <div class="row" style="margin-bottom:20px;">
+                  <div class="col-md-6">
+                      <input type="email" placeholder="Email" name="email" class="input-field" required>
+                  </div>
+                  <div class="col-md-6">
+                      <input type="text" placeholder="Phone" minlength="10" name="phone" class="input-field" required>
+                  </div>
+              </div>
+
+              <div class="row" style="margin-bottom:20px;">
+                  <div class="col-md-6">
+                      <input type="password" placeholder="Password" name="password"  id="password" class="input-field" required>
+                  </div>
+                  <div class="col-md-6">
+                      <input type="password" placeholder="Confirm Password" name="cpassword"  id="cpassword" class="input-field" required>
+                  </div>
+              </div>
+                  <input type="submit" value="Register" class="signup-button">
+
+              </form>
+
+          </div>
+
+
+
+      </div>
+</body>
+<script>
+        document.getElementById('backButton').addEventListener('click', function() {
+        window.location.href = '/';
+        });
+    </script>
+</html>
